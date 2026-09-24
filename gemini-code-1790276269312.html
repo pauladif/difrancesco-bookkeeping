@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DiFrancesco Bookkeeping | Certified QuickBooks Online Advanced ProAdvisor</title>
+    <style>
+        :root {
+            --brand-dark-warm: #3D352E;
+            --brand-cream-accent: #C5A059;
+            --brand-cream-hover: #B38E46;
+            --bg-cream: #FAF8F5;
+            --card-bg: #FFFFFF;
+            --text-dark: #3D352E;
+            --text-muted: #6B6158;
+            --border-light: rgba(61, 53, 46, 0.12);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-cream);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1160px;
+            margin: 0 auto;
+            padding: 0 24px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Navigation */
+        header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid var(--border-light);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 130px; /* Expanded header height */
+        }
+
+        .brand-link {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        /* Increased Main Logo Size */
+        .brand-link svg {
+            height: 108px;
+            width: auto;
+            display: block;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        nav a {
+            color: var(--brand-dark-warm);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--brand-cream-accent);
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--brand-cream-accent);
+            color: #FFFFFF;
+            padding: 14px 28px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 1rem;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.2s, transform 0.1s;
+        }
+
+        .btn:hover {
+            background-color: var(--brand-cream-hover);
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        /* Hero with Wide Transparent Background Watermark */
+        .hero {
+            position: relative;
+            padding: 120px 0 95px 0;
+            text-align: center;
+            background: linear-gradient(180deg, #FFFFFF 0%, var(--bg-cream) 100%);
+            border-bottom: 1px solid var(--border-light);
+            overflow: hidden;
+        }
+
+        /* Expanded Across Left & Right */
+        .watermark-bg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 1500px;
+            max-width: 140vw;
+            opacity: 0.16; /* Clearly visible transparent backdrop */
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .watermark-bg svg {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(197, 160, 89, 0.18);
+            color: #8C6A24;
+            font-size: 0.9rem;
+            font-weight: 700;
+            padding: 7px 20px;
+            border-radius: 24px;
+            margin-bottom: 24px;
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            color: var(--brand-dark-warm);
+            max-width: 890px;
+            margin: 0 auto 24px auto;
+            line-height: 1.25;
+            letter-spacing: -0.5px;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 740px;
+            margin: 0 auto 38px auto;
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 90px 0;
+            background-color: #FFFFFF;
+            border-bottom: 1px solid var(--border-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-card {
+            background-color: var(--bg-cream);
+            border-radius: 12px;
+            border: 1px solid var(--border-light);
+            padding: 55px;
+            max-width: 900px;
+            margin: 0 auto;
+            box-shadow: 0 4px 16px rgba(61, 53, 46, 0.04);
+            position: relative;
+            z-index: 2;
+        }
+
+        .about-header {
+            margin-bottom: 24px;
+        }
+
+        .about-header h2 {
+            font-size: 2.2rem;
+            color: var(--brand-dark-warm);
+            margin-bottom: 8px;
+        }
+
+        .about-header .subtitle {
+            color: var(--brand-cream-accent);
+            font-weight: 700;
+            font-size: 1.05rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .about-content p {
+            color: var(--text-dark);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .about-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Starting Price Section */
+        .pricing-section {
+            padding: 85px 0;
+            background-color: var(--bg-cream);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .section-header h2 {
+            font-size: 2.2rem;
+            color: var(--brand-dark-warm);
+            margin-bottom: 12px;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .single-pricing-card {
+            background: var(--card-bg);
+            border: 2px solid var(--brand-cream-accent);
+            border-radius: 10px;
+            padding: 48px 36px;
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+            box-shadow: 0 6px 20px rgba(61, 53, 46, 0.05);
+        }
+
+        .single-pricing-card h3 {
+            color: var(--brand-dark-warm);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .price-display {
+            margin-bottom: 30px;
+        }
+
+        .price-label {
+            display: block;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .price-amount {
+            font-size: 3.2rem;
+            font-weight: 900;
+            color: var(--brand-dark-warm);
+        }
+
+        .price-period {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-bottom: 36px;
+            text-align: left;
+            max-width: 420px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .features-list li {
+            position: relative;
+            padding-left: 28px;
+            margin-bottom: 14px;
+            font-size: 1rem;
+            color: var(--brand-dark-warm);
+        }
+
+        .features-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--brand-cream-accent);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        /* Contact Section & Form */
+        .contact-section {
+            background-color: var(--brand-dark-warm);
+            color: #FFFFFF;
+            padding: 85px 0;
+        }
+
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .contact-details h2 {
+            font-size: 2.2rem;
+            margin-bottom: 16px;
+            line-height: 1.3;
+        }
+
+        .contact-details p {
+            opacity: 0.85;
+            margin-bottom: 32px;
+            font-size: 1.05rem;
+        }
+
+        .info-item {
+            margin-bottom: 20px;
+            font-size: 1rem;
+        }
+
+        .info-item strong {
+            display: block;
+            color: var(--brand-cream-accent);
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .form-box {
+            background: #FFFFFF;
+            border-radius: 8px;
+            padding: 36px;
+            color: var(--brand-dark-warm);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-box h3 {
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+        }
+
+        .form-box p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 24px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            font-size: 0.88rem;
+            margin-bottom: 6px;
+            color: var(--brand-dark-warm);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-light);
+            border-radius: 6px;
+            font-size: 0.95rem;
+            background: #FDFDFD;
+            color: var(--brand-dark-warm);
+            outline: none;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--brand-cream-accent);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            height: 100px;
+        }
+
+        .full-width-btn {
+            width: 100%;
+            padding: 14px;
+            font-size: 1.05rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2F2823;
+            color: rgba(255, 255, 255, 0.6);
+            padding: 32px 0;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        footer a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            margin: 0 12px;
+        }
+
+        footer a:hover {
+            color: var(--brand-cream-accent);
+        }
+
+        @media (max-width: 960px) {
+            header .container {
+                flex-direction: column;
+                height: auto;
+                padding: 20px;
+                gap: 16px;
+            }
+            .brand-link svg {
+                height: 80px;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .about-card {
+                padding: 30px 20px;
+            }
+            .contact-layout {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="container">
+            <a href="#" class="brand-link" aria-label="DiFrancesco Bookkeeping Home">
+                <!-- Large Vector Logo -->
+                <svg viewBox="0 0 680 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M 30 20 H 105 C 160 20 188 56 188 90 C 188 124 160 160 105 160 H 30 Z M 48 38 V 142 H 104 C 146 142 168 116 168 90 C 168 64 146 38 104 38 Z" fill="#3D352E" fill-rule="evenodd" />
+                    <line x1="102" y1="38" x2="102" y2="142" stroke="#3D352E" stroke-width="4.5" />
+                    <line x1="48" y1="90" x2="168" y2="90" stroke="#3D352E" stroke-width="4.5" />
+                    <circle cx="75" cy="64" r="8" fill="#C5A059" />
+                    <path d="M 64 116 L 73 125 L 88 105" fill="none" stroke="#C5A059" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" />
+                    <line x1="112" y1="108" x2="152" y2="108" stroke="#3D352E" stroke-width="3.5" />
+                    <line x1="112" y1="124" x2="146" y2="124" stroke="#3D352E" stroke-width="3.5" />
+                    <line x1="124" y1="90" x2="124" y2="140" stroke="#3D352E" stroke-width="3.5" />
+                    <line x1="140" y1="90" x2="140" y2="135" stroke="#3D352E" stroke-width="3.5" />
+                    <path d="M 108 84 L 175 22 M 175 22 H 152 M 175 22 V 45" fill="none" stroke="#C5A059" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+                    <text x="215" y="94" font-size="52" font-weight="900" letter-spacing="2.5" fill="#3D352E" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif">DIFRANCESCO</text>
+                    <text x="216" y="142" font-size="30" font-weight="400" letter-spacing="5.5" fill="#3D352E" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif">BOOKKEEPING</text>
+                    <path d="M 590 134 C 612 133 638 124 646 118" stroke="#C5A059" stroke-width="7" stroke-linecap="round" fill="none" />
+                </svg>
+            </a>
+            <nav>
+                <a href="#about">About Me</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#contact" class="btn">Get in Touch</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section with Extended Left & Right Transparent Logo -->
+    <section class="hero">
+        <div class="watermark-bg" aria-hidden="true">
+            <svg viewBox="0 0 680 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M 30 20 H 105 C 160 20 188 56 188 90 C 188 124 160 160 105 160 H 30 Z M 48 38 V 142 H 104 C 146 142 168 116 168 90 C 168 64 146 38 104 38 Z" fill="#3D352E" fill-rule="evenodd" />
+                <line x1="102" y1="38" x2="102" y2="142" stroke="#3D352E" stroke-width="4.5" />
+                <line x1="48" y1="90" x2="168" y2="90" stroke="#3D352E" stroke-width="4.5" />
+                <circle cx="75" cy="64" r="8" fill="#C5A059" />
+                <path d="M 64 116 L 73 125 L 88 105" fill="none" stroke="#C5A059" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" />
+                <line x1="112" y1="108" x2="152" y2="108" stroke="#3D352E" stroke-width="3.5" />
+                <line x1="112" y1="124" x2="146" y2="124" stroke="#3D352E" stroke-width="3.5" />
+                <line x1="124" y1="90" x2="124" y2="140" stroke="#3D352E" stroke-width="3.5" />
+                <line x1="140" y1="90" x2="140" y2="135" stroke="#3D352E" stroke-width="3.5" />
+                <path d="M 108 84 L 175 22 M 175 22 H 152 M 175 22 V 45" fill="none" stroke="#C5A059" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+                <text x="215" y="94" font-size="52" font-weight="900" letter-spacing="2.5" fill="#3D352E" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif">DIFRANCESCO</text>
+                <text x="216" y="142" font-size="30" font-weight="400" letter-spacing="5.5" fill="#3D352E" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif">BOOKKEEPING</text>
+                <path d="M 590 134 C 612 133 638 124 646 118" stroke="#C5A059" stroke-width="7" stroke-linecap="round" fill="none" />
+            </svg>
+        </div>
+
+        <div class="container">
+            <span class="badge">Intuit Certified QuickBooks Online Advanced ProAdvisor</span>
+            <h1>Clean Books. Accurate Numbers. Total Financial Peace of Mind.</h1>
+            <p>I take the bookkeeping and reconciliation burden off your plate so you can focus entirely on growing your business with clarity and confidence.</p>
+            <a href="#contact" class="btn" style="padding: 16px 36px; font-size: 1.1rem;">Schedule a Free Discovery Call</a>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="about-card">
+                <div class="about-header">
+                    <span class="subtitle">About Me</span>
+                    <h2>Experienced Financial Professional</h2>
+                </div>
+                <div class="about-content">
+                    <p>
+                        Hello, my name is <strong>Paula DiFrancesco</strong>. Located in <strong>Cleveland, Ohio</strong>, I am a professional accountant with over 10 years of experience dedicated to helping small businesses and non-profit organizations maintain financial health and growth.
+                    </p>
+                    <p>
+                        I hold a <strong>Bachelor’s Degree in Economic Sciences</strong>, a <strong>Post-Graduation in Finance</strong>, and a <strong>Master’s Degree in Accounting and Finance</strong>. This deep academic foundation complements my practical experience across every facet of financial management.
+                    </p>
+                    <p>
+                        I was born in Brazil, where my passion for the financial field started early at 19 years old—a calling that quickly became my career. Over the years, I have gained extensive experience working with commercial banks, large corporations, small businesses, and non-profit organizations across the United States.
+                    </p>
+                    <p>
+                        Whether you are an established enterprise or a growing local venture, I combine structured, corporate-level rigor with personalized, dependable support to give you complete peace of mind over your financials.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Starting Price Section -->
+    <section id="pricing" class="pricing-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Transparent Investment</h2>
+                <p>Professional bookkeeping services tailored to your business needs.</p>
+            </div>
+            
+            <div class="single-pricing-card">
+                <h3>Basic Monthly Package</h3>
+                <div class="price-display">
+                    <span class="price-label">Starting Price At</span>
+                    <span class="price-amount">$650</span>
+                    <span class="price-period">/ month</span>
+                </div>
+                <ul class="features-list">
+                    <li>Bank & credit card reconciliations</li>
+                    <li>Monthly transaction categorization</li>
+                    <li>Accurate Profit & Loss and Balance Sheet reports</li>
+                    <li>Year-end tax-ready financial package delivery</li>
+                </ul>
+                <a href="#contact" class="btn" style="width: 100%; text-align: center; padding: 14px;">Inquire Today</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Direct Email Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="contact-layout">
+                <div class="contact-details">
+                    <h2>Ready for Worry-Free Financials?</h2>
+                    <p>Serving clients remotely nationwide, as well as locally throughout Northeast Ohio. Send a direct inquiry below to discuss your bookkeeping needs.</p>
+                    
+                    <div class="info-item">
+                        <strong>Email Address</strong>
+                        paulaalve@gmail.com
+                    </div>
+                    <div class="info-item">
+                        <strong>Direct Phone</strong>
+                        (216) 659-9804
+                    </div>
+                    <div class="info-item">
+                        <strong>Office Location</strong>
+                        2567 South Taylor Road, Cleveland Heights, OH 44118
+                    </div>
+                </div>
+
+                <div class="form-box">
+                    <h3>Send an Email Inquiry</h3>
+                    <p>Complete this form and click below to draft and send your message immediately.</p>
+                    <form id="inquiryForm" onsubmit="handleSendEmail(event)">
+                        <div class="form-group">
+                            <label for="senderName">Your Name</label>
+                            <input type="text" id="senderName" placeholder="e.g. Jane Smith" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="companyName">Business Name</label>
+                            <input type="text" id="companyName" placeholder="e.g. Smith Consulting LLC" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="serviceType">Service Needed</label>
+                            <select id="serviceType">
+                                <option value="Basic Monthly Package">Basic Monthly Bookkeeping ($650/mo)</option>
+                                <option value="Catch-Up / Cleanup">Historical Catch-Up / Cleanup</option>
+                                <option value="QuickBooks Setup">QuickBooks Online Setup & Training</option>
+                                <option value="Other Inquiries">General Financial Inquiries</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="messageText">Tell me a little about your business</label>
+                            <textarea id="messageText" placeholder="Estimated monthly transaction volume, current bookkeeping setup, or specific goals..."></textarea>
+                        </div>
+                        <button type="submit" class="btn full-width-btn">Send Message via Email</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 DiFrancesco Bookkeeping LLC. All rights reserved.</p>
+            <p style="margin-top: 8px;">
+                <a href="#about">About</a> &bull; 
+                <a href="#pricing">Pricing</a> &bull; 
+                <a href="#contact">Contact</a> &bull; 
+                <a href="mailto:paulaalve@gmail.com">paulaalve@gmail.com</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Interactive Scripts -->
+    <script>
+        function handleSendEmail(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('senderName').value.trim();
+            const company = document.getElementById('companyName').value.trim();
+            const service = document.getElementById('serviceType').value;
+            const message = document.getElementById('messageText').value.trim();
+            
+            const subject = encodeURIComponent(`Bookkeeping Inquiry: ${company} (${name})`);
+            const body = encodeURIComponent(
+                `Hello Paula,\n\n` +
+                `My name is ${name} from ${company}.\n\n` +
+                `Service Needed: ${service}\n\n` +
+                `Details:\n${message}\n\n` +
+                `Looking forward to connecting with you.`
+            );
+            
+            window.location.href = `mailto:paulaalve@gmail.com?subject=${subject}&body=${body}`;
+        }
+    </script>
+</body>
+</html>
